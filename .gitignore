@@ -1,0 +1,24 @@
+# ── Secrets / local config (NEVER commit) ──────────────────
+# Claude local settings contain DeepSeek API keys in the permission allowlist.
+.claude/
+
+# The app's API key lives in the user's local SQLite DB outside this tree:
+#   ~/Library/Application Support/WordBook/wordbook.db
+# It is never part of the source. Do not add DB files here.
+*.db
+*.sqlite
+*.sqlite3
+.env
+.env.*
+
+# ── Build output ───────────────────────────────────────────
+wordbook-java/target/
+wordbook-java/dependency-reduced-pom.xml
+
+# ── Backups / scratch ──────────────────────────────────────
+*.bak
+*.icns.bak
+
+# ── macOS ──────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store

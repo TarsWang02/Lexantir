@@ -1,0 +1,106 @@
+/* ── Theme tokens ───────────────────────────────────────────────────
+   Looked-up colours, switched by toggling the "dark" class on the scene
+   root. Every scene that loads this sheet (main window + modals) gets the
+   right palette just by adding/removing that one class. Keep these in sync
+   with Theme.java's light / dark palettes. */
+.root {
+    -wb-bg:        #EFE9DD;
+    -wb-text:      #4D4233;
+    -wb-border:    #D9D1C2;
+    -wb-input-bg:  #FAF6EE;
+    -wb-prompt:    #B0A795;
+    -wb-thumb:     #D6CDBC;
+    -wb-accent:    #C9A578;
+    -wb-highlight: #EDDFC4;
+
+    -fx-background-color: -wb-bg;
+    -fx-font-family: "Georgia";
+}
+.root.dark {
+    -wb-bg:        #16140F;
+    -wb-text:      #ECE3D4;
+    -wb-border:    #3A352B;
+    -wb-input-bg:  #2B2720;
+    -wb-prompt:    #7E7563;
+    -wb-thumb:     #3A352B;
+    -wb-accent:    #C9A578;
+    -wb-highlight: #3A3325;
+}
+
+/* Transparent, borderless scroll pane */
+.scroll-pane,
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+.scroll-pane {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+/* Morandi scrollbar */
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10;
+}
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+.scroll-bar:vertical .thumb {
+    -fx-background-color: -wb-thumb;
+    -fx-background-radius: 6;
+}
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: -wb-accent;
+}
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button,
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
+}
+
+/* Text fields / areas */
+.text-field, .text-area {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: -wb-border;
+    -fx-border-width: 1;
+    -fx-background-color: -wb-input-bg;
+    -fx-text-fill: -wb-text;
+    -fx-font-family: "Georgia";
+    -fx-prompt-text-fill: -wb-prompt;
+}
+.text-area .content {
+    -fx-background-color: -wb-input-bg;
+}
+.text-field:focused, .text-area:focused {
+    -fx-border-color: -wb-accent;
+}
+
+/* Reading surface: a non-editable TextArea that reads like flat paragraph text. */
+.reading-surface,
+.reading-surface .content,
+.reading-surface .viewport,
+.reading-surface:hover,
+.reading-surface:focused,
+.reading-surface:focused .content,
+.reading-surface .content:hover {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+.reading-surface {
+    -fx-text-fill: -wb-text;
+    -fx-font-size: 14px;
+    -fx-highlight-fill: -wb-highlight;
+    -fx-highlight-text-fill: -wb-text;
+}
+.reading-surface .scroll-bar {
+    -fx-opacity: 0;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}

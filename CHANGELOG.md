@@ -11,7 +11,15 @@ and this project aims to follow [Semantic Versioning](https://semver.org/).
   word to translate it (reusing the system-wide capture popup), with a simulated
   sand-gold selection highlight that is light/dark-theme aware and clears on a
   blank-space click.
+- Natural text-to-speech via online dictionary audio (Youdao `dictvoice`,
+  US/UK accents) with an offline macOS `say` fallback. New **Reading Voice**
+  setting (American · online / British · online / System · offline).
+- `TtsEngine` abstraction so other platforms can plug in their own TTS later.
 - Designed README, project governance files, issue/PR templates, and CI.
+
+### Fixed
+- Auto-speak going silent after the `edge-tts` dependency was removed — captured
+  words are spoken again, and sound more natural than the previous robotic voice.
 
 ### Changed
 - App icon and menu-bar icons refreshed; `WordBook.icns` regenerated.

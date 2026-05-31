@@ -73,7 +73,10 @@ no Dock icon) → **code-sign with the stable self-signed identity** → copy to
   (article settings), `AchievementCard` (portrait reward card).
 - `service/Translator.java` — Google free translate endpoint; `Sense`/`ProcessedWord`
   records; `translateRich`/`senseLines`/`serializeSenses`.
-- `service/TtsService.java` — TTS (see Known Issues — currently basic `say`).
+- `service/TtsService.java` — TTS façade over a `service/tts/TtsEngine`. Default
+  `OnlineDictTts` (Youdao `dictvoice`, natural US/UK word audio, keyless) with an
+  offline `MacSayTts` (`say -v … -o` + `afplay`) fallback. Voice in `meta.tts_voice`
+  (`youdao-us` | `youdao-uk` | `system`), picked in Settings → Reading Voice.
 - `service/DeepSeekService.java` — LLM client (article gen / domain clustering / quote).
 - `capture/GlobalCapture.java` — JNativeHook global mouse/key listener + osascript ⌘C.
 - `platform/MacNative.java` — JNA→Cocoa: front-most app pid + activate (popup foreground yield).
@@ -172,11 +175,12 @@ Word lists:
 ---
 
 ## Known issues / TODOs
-- **TTS is still the basic robotic macOS `say`.** `edge-tts` was removed when the Python
-  `venv` was cleaned up, and no enhanced voice is installed. User **deferred** this ("read
-  先不动"). Plan when resumed: prefer a **local macOS enhanced/premium voice** (`say -v`,
-  fast + natural + offline) with a voice picker in Settings + prefetch; abstract `TtsService`
-  behind an interface so each platform (Win SAPI/WinRT, iOS/Android native) plugs in later.
+- **TTS — RESOLVED.** Was silent after `edge-tts` removal; the bare `say` fallback also
+  sounded robotic. Now `TtsService` → `TtsEngine` interface with `OnlineDictTts` (Youdao
+  `dictvoice`, natural keyless US/UK word audio, mp3 cached + `afplay`) and an offline
+  `MacSayTts` (`say -v … -o` + `afplay`) fallback; voice picker in Settings. For future
+  platforms, implement `TtsEngine` (Win SAPI/WinRT, iOS/Android native). Possible upgrade:
+  reimplement edge-tts neural voice in pure Java (WebSocket) for better *sentence* prosody.
 - **Achievement-card image is a placeholder gradient.** User will provide a curated CC0
   image set to **bundle** (lazy-loaded; bundle-size not memory is the cost). Then add
   domain→image matching. A self-hosted image server is the longer-term "product" option.

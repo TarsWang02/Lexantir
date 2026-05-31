@@ -399,6 +399,22 @@ public class MainWindow extends BorderPane {
         appearance.getChildren().add(opts);
         contentBox.getChildren().add(appearance);
 
+        // Reading voice (TTS)
+        Card voiceCard = settingsCard(I18n.t("settings.voice"), I18n.t("settings.voiceSub"));
+        VBox vopts = new VBox(10);
+        String cur = TtsService.currentVoice();
+        for (String id : TtsService.availableVoices()) {
+            boolean online = !"system".equals(id);
+            vopts.getChildren().add(optionRow(
+                    I18n.t("voice." + id),
+                    I18n.t(online ? "voice.sub.online" : "voice.sub.system"),
+                    online ? "♪" : "⌨",
+                    id.equalsIgnoreCase(cur),
+                    () -> changeVoice(id)));
+        }
+        voiceCard.getChildren().add(vopts);
+        contentBox.getChildren().add(voiceCard);
+
         // Language
         Card langCard = settingsCard(I18n.t("settings.language"), I18n.t("settings.languageSub"));
         VBox lopts = new VBox(10);
@@ -464,6 +480,12 @@ public class MainWindow extends BorderPane {
         row.getChildren().add(h);
         row.setOnMouseClicked(e -> { if (!selected) onPick.run(); });
         return row;
+    }
+
+    /** Switch the reading (TTS) voice, persist it, play a sample, and refresh markers. */
+    void changeVoice(String voice) {
+        TtsService.setVoice(voice);   // persists + speaks a short sample
+        refreshView();
     }
 
     /** Switch the interface language, persist it, and rebuild the UI. */

@@ -131,6 +131,19 @@ public final class I18n {
         put("settings.system",    "Follow System", "跟随系统", "システムに従う");
         put("settings.systemSub", "Match the macOS appearance", "匹配 macOS 外观", "macOS の外観に合わせる");
 
+        put("settings.voice",    "✦ READING VOICE", "✦ 朗读语音", "✦ 読み上げ音声");
+        put("settings.voiceSub",
+                "Captured words are read aloud with natural online dictionary audio, "
+                        + "falling back to the offline system voice when there's no network.",
+                "用自然的在线词典发音朗读捕获的单词；没有网络时自动退回离线的系统语音。",
+                "取り込んだ単語を自然なオンライン辞書音声で読み上げます。ネットワークがない場合はオフラインのシステム音声に切り替わります。");
+        put("voice.youdao-us", "American · online", "美音 · 在线", "アメリカ · オンライン");
+        put("voice.youdao-uk", "British · online",  "英音 · 在线", "イギリス · オンライン");
+        put("voice.system",    "System voice · offline", "系统语音 · 离线", "システム音声 · オフライン");
+        put("voice.sub.online", "Natural dictionary pronunciation",
+                "自然的词典发音", "自然な辞書発音");
+        put("voice.sub.system", "Robotic, but works without internet",
+                "电子音，但无需联网", "機械的だがオフラインで動作");
         put("settings.language",    "✦ LANGUAGE", "✦ 语言", "✦ 言語");
         put("settings.languageSub", "Choose the interface language.", "选择界面语言。", "インターフェース言語を選びます。");
 

@@ -1,0 +1,42 @@
+name: "🐞 Bug report"
+description: Something isn't working as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report a bug!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, and what you expected instead.
+      placeholder: When I double-click a word in Safari, ...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Double-click ...
+        3. See ...
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "e.g. macOS 15.4 (Apple Silicon)"
+    validations:
+      required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: App version / commit
+      placeholder: "e.g. 1.0.0 or commit 1843400"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots
+      description: Drag in screenshots, or paste anything from the console.

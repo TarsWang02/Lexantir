@@ -1,0 +1,16 @@
+# Normalize line endings
+* text=auto eol=lf
+*.sh text eol=lf
+
+# Treat binary assets as binary (no diff/merge mangling)
+*.png  binary
+*.icns binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.mp3  binary
+*.jar  binary
+
+# Collapse vendored / generated paths in diffs and language stats
+wordbook-java/target/** linguist-generated=true
+*.md linguist-documentation

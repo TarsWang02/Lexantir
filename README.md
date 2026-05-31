@@ -10,12 +10,13 @@ Capture English words anywhere you read — then *re-read them, woven back into 
 
 <br/>
 
+[![build](https://github.com/TarsWang02/Lexantir/actions/workflows/build.yml/badge.svg)](https://github.com/TarsWang02/Lexantir/actions/workflows/build.yml)
 ![Platform](https://img.shields.io/badge/Platform-macOS-4D4233?style=flat-square)
 ![Java](https://img.shields.io/badge/Java-23-A8895F?style=flat-square)
 ![JavaFX](https://img.shields.io/badge/JavaFX-23.0.1-C9A578?style=flat-square)
 ![SQLite](https://img.shields.io/badge/SQLite-local-877C6D?style=flat-square)
 ![Status](https://img.shields.io/badge/status-in%20development-B88B7A?style=flat-square)
-![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-B5A78F?style=flat-square)
+[![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-B5A78F?style=flat-square)](LICENSE)
 
 </div>
 
@@ -156,6 +157,16 @@ wordbook-java/
 - **Privacy:** the DeepSeek API key lives only in your local SQLite DB — never in source.
 - **Naming:** the repo is **Lexantir**; the app is still internally named *WordBook*
   (bundle id `com.wordbook.app`). A full rebrand is on the to-do list.
+
+---
+
+## Project docs
+
+[Changelog](CHANGELOG.md) ·
+[Contributing](CONTRIBUTING.md) ·
+[Security policy](SECURITY.md) ·
+[Code of conduct](CODE_OF_CONDUCT.md) ·
+[License](LICENSE)
 
 <div align="center">
 <br/>
